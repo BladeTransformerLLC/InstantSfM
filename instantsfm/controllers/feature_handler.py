@@ -28,17 +28,17 @@ def GenerateDatabase(image_path, database_path, feature_handler_name, config, si
         '--ImageReader.camera_model', 'SIMPLE_RADIAL',
         '--ImageReader.single_camera', '1' if single_camera else '0',
         '--ImageReader.single_camera_per_folder', '1' if (not single_camera and camera_per_folder) else '0',
-        '--FeatureExtraction.use_gpu', '1'
+        '--FeatureExtraction.use_gpu', '0'
     ]
     exhaustive_matcher_cmd = [
         'colmap', 'exhaustive_matcher',
         '--database_path', database_path,
-        '--FeatureMatching.use_gpu', '1'
+        '--FeatureMatching.use_gpu', '0'
     ]
     sequential_matcher_cmd = [
         'colmap', 'sequential_matcher',
         '--database_path', database_path,
-        '--FeatureMatching.use_gpu', '1'
+        '--FeatureMatching.use_gpu', '0'
     ]
     use_exhaustive = True
     matcher_cmd = exhaustive_matcher_cmd if use_exhaustive else sequential_matcher_cmd
